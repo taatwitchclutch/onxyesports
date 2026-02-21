@@ -1,163 +1,168 @@
-// ONXY Esports Full Website - index.jsx
 import React, { useState } from "react";
-import "./styles.css"; // Make sure to create styles.css or include the CSS below
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Trophy, Users, Gamepad2, Mail } from "lucide-react";
 
-export default function App() {
+export default function OnxyEsportsWebsite() {
   const [openSection, setOpenSection] = useState(null);
+  const toggleSection = (section) => setOpenSection(openSection === section ? null : section);
 
-  const toggleSection = (section) => {
-    setOpenSection(openSection === section ? null : section);
-  };
+  const academySections = [
+    { title: "Purpose", content: [
+      "Aren’t at PR/placement requirement yet",
+      "Want coaching + structure",
+      "Are serious about improving",
+      "Want a real path to the main roster"
+    ]},
+    { title: "Academy Requirements", content: [
+      "Must be at least Diamond+ (or whatever fits your level)",
+      "Active 4–5 days per week",
+      "Willing to scrim",
+      "Takes criticism without ego",
+      "Good mic & comms",
+      "No toxic behavior"
+    ]},
+    { title: "What Academy Members Get", content: [
+      "Practice scrims with org players",
+      "Vod review sessions",
+      "Improvement goals every 2 weeks",
+      "Access to private strategy chats",
+      "Tryout priority for main roster"
+    ]},
+    { title: "Promotion System", content: [
+      "Consistent placements",
+      "Noticeable improvement",
+      "Attitude & teamwork",
+      "Activity",
+      "Loyalty to the org",
+      "Promotion reviews every 30 days"
+    ]},
+    { title: "Academy Rules", content: [
+      "No complaining about not being on main team",
+      "No skipping practice without notice",
+      "Must attempt at least ___ tournaments per month",
+      "Represent the org professionally",
+      "No org hopping"
+    ]}
+  ];
 
   return (
-    <div>
-      {/* --- Navbar --- */}
-      <nav className="navbar">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#roster">Roster</a></li>
-          <li><a href="#academy">Academy</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      {/* --- Home Section --- */}
-      <section id="home" className="home-section">
-        <h1>Welcome to ONXY Esports</h1>
-        <p>Competitive gaming at its finest.</p>
-      </section>
-
-      {/* --- About Section --- */}
-      <section id="about" className="about-section">
-        <h2>About ONXY Esports</h2>
-        <p>We’re a competitive esports organization dedicated to Fortnite excellence.</p>
-      </section>
-
-      {/* --- Roster Section --- */}
-      <section id="roster" className="roster-section">
-        <h2>Our Roster</h2>
-        <p>Meet our talented players and coaching staff.</p>
-        {/* Add roster cards or images here */}
-      </section>
-
-      {/* --- Academy Section --- */}
-      <section id="academy" className="academy-section">
-        <div className="container">
-          <h2>🎯 Onyx Academy</h2>
-          <p>For players who have potential but aren’t at main roster level yet.</p>
-
-          {[
-            { title: "Purpose", content: [
-              "Aren’t at PR/placement requirement yet",
-              "Want coaching + structure",
-              "Are serious about improving",
-              "Want a real path to the main roster"
-            ]},
-            { title: "Academy Requirements", content: [
-              "Must be at least Diamond+ (or whatever fits your level)",
-              "Active 4–5 days per week",
-              "Willing to scrim",
-              "Takes criticism without ego",
-              "Good mic & comms",
-              "No toxic behavior"
-            ]},
-            { title: "What Academy Members Get", content: [
-              "Practice scrims with org players",
-              "Vod review sessions",
-              "Improvement goals every 2 weeks",
-              "Access to private strategy chats",
-              "Tryout priority for main roster"
-            ]},
-            { title: "Promotion System", content: [
-              "Consistent placements",
-              "Noticeable improvement",
-              "Attitude & teamwork",
-              "Activity",
-              "Loyalty to the org",
-              "Promotion reviews every 30 days"
-            ]},
-            { title: "Academy Rules", content: [
-              "No complaining about not being on main team",
-              "No skipping practice without notice",
-              "Must attempt at least ___ tournaments per month",
-              "Represent the org professionally",
-              "No org hopping"
-            ]}
-          ].map((section, index) => (
-            <div key={index} className="collapsible-section">
-              <button
-                className="collapsible-btn"
-                onClick={() => toggleSection(index)}
-              >
-                {section.title}
-                <span>{openSection === index ? " ▲" : " ▼"}</span>
-              </button>
-              {openSection === index && (
-                <ul className="collapsible-content">
-                  {section.content.map((item, i) => <li key={i}>{item}</li>)}
-                </ul>
-              )}
-            </div>
-          ))}
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-20 px-6 bg-gradient-to-b from-black to-zinc-900">
+        <motion.img
+          src="/orglogo.png"
+          alt="ONXY Esports Logo"
+          className="w-48 mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        />
+        <motion.h1
+          className="text-5xl font-bold tracking-wide"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          ONXY ESPORTS
+        </motion.h1>
+        <p className="mt-4 text-zinc-400 max-w-xl">
+          Power. Precision. Dominance. We are ONXY Esports — building the next generation of elite competitive players.
+        </p>
+        <div className="mt-6 flex gap-4">
+          <Button className="rounded-2xl px-6">Join The Team</Button>
+          <Button variant="outline" className="rounded-2xl px-6">Watch Us Compete</Button>
         </div>
       </section>
 
-      {/* --- Contact Section --- */}
-      <section id="contact" className="contact-section">
-        <h2>Contact Us</h2>
-        <p>Get in touch for tryouts, sponsorships, or questions.</p>
+      {/* About Section */}
+      <section className="py-16 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-8 text-center">About ONXY</h2>
+        <p className="text-zinc-400 text-center max-w-3xl mx-auto">
+          ONXY Esports is a competitive gaming organization focused on high-level performance, content creation, and community growth. Our mission is to develop talent, dominate tournaments, and inspire the next wave of esports athletes.
+        </p>
       </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-6 bg-zinc-900">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <Card className="rounded-2xl shadow-xl bg-black border border-zinc-800">
+            <CardContent className="p-6 text-center">
+              <Trophy className="mx-auto mb-4" size={40} />
+              <h3 className="text-xl font-semibold">Competitive Excellence</h3>
+              <p className="text-zinc-400 mt-2">
+                We compete in top-tier tournaments and aim for championship-level results.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-2xl shadow-xl bg-black border border-zinc-800">
+            <CardContent className="p-6 text-center">
+              <Users className="mx-auto mb-4" size={40} />
+              <h3 className="text-xl font-semibold">Community Driven</h3>
+              <p className="text-zinc-400 mt-2">
+                We build strong connections with supporters, fans, and upcoming players.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-2xl shadow-xl bg-black border border-zinc-800">
+            <CardContent className="p-6 text-center">
+              <Gamepad2 className="mx-auto mb-4" size={40} />
+              <h3 className="text-xl font-semibold">Content & Branding</h3>
+              <p className="text-zinc-400 mt-2">
+                High-quality content, strong branding, and professional presence.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Academy Section */}
+      <section className="py-16 px-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-8 text-center">🎯 Onyx Academy</h2>
+        <p className="text-zinc-400 text-center mb-8">
+          For players who have potential but aren’t at main roster level yet.
+        </p>
+        {academySections.map((section, idx) => (
+          <div key={idx} className="mb-4">
+            <button
+              onClick={() => toggleSection(idx)}
+              className="w-full bg-zinc-800 px-6 py-3 text-left rounded-2xl flex justify-between items-center"
+            >
+              {section.title}
+              <span>{openSection === idx ? "▲" : "▼"}</span>
+            </button>
+            {openSection === idx && (
+              <ul className="pl-6 mt-2 list-disc text-zinc-400">
+                {section.content.map((item, i) => <li key={i}>{item}</li>)}
+              </ul>
+            )}
+          </div>
+        ))}
+      </section>
+
+      {/* Recruitment Section */}
+      <section className="py-16 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-semibold mb-4">Join ONXY Esports</h2>
+        <p className="text-zinc-400 mb-6">
+          Think you have what it takes? We're always scouting talented players, content creators, editors, and designers.
+        </p>
+        <Button className="rounded-2xl px-8 text-lg">Apply Now</Button>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-6 bg-zinc-900 text-center">
+        <Mail className="mx-auto mb-4" size={40} />
+        <h2 className="text-2xl font-semibold">Contact Us</h2>
+        <p className="text-zinc-400 mt-2">contact@onxyesports.gg</p>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-zinc-500 border-t border-zinc-800">
+        © {new Date().getFullYear()} ONXY Esports. All rights reserved.
+      </footer>
     </div>
   );
 }
-/* --- General Styles --- */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #fff;
-}
-a { color: #fff; text-decoration: none; }
-
-/* --- Navbar --- */
-.navbar {
-  background: #111;
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-.navbar li { display: inline; }
-.navbar a:hover { text-decoration: underline; }
-
-/* --- Sections --- */
-section { padding: 60px 20px; }
-.home-section { background-color: #1a1a1a; text-align: center; }
-.about-section { background-color: #222; }
-.roster-section { background-color: #1a1a1a; }
-.academy-section { background-color: #222; }
-.contact-section { background-color: #1a1a1a; }
-
-/* --- Academy Collapsible --- */
-.collapsible-section { margin-bottom: 15px; }
-.collapsible-btn {
-  width: 100%;
-  background: #333;
-  color: #fff;
-  padding: 15px;
-  text-align: left;
-  font-size: 1.2rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.2s;
-}
-.collapsible-btn:hover { background: #444; }
-.collapsible-content { margin-top: 5px; padding-left: 20px; }
-.collapsible-content li { margin-bottom: 8px; }
