@@ -3,41 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>ONXY Esports</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <h1>Welcome to ONXY Esports</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>At ONXY Esports, we strive to become the leading name in competitive gaming.</p>
-        </section>
-        <section id="team">
-            <h2>Our Team</h2>
-            <p>Meet our talented players and coaching staff.</p>
-        </section>
-        <section id="games">
-            <h2>Games</h2>
-            <p>We compete in a variety of games including FPS, MOBA, and Sports.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: contact@onxyesports.com</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 ONXY Esports. All rights reserved.</p>
+<body class="bg-gray-100">
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white text-center py-20">
+        <h1 class="text-5xl font-bold">Welcome to ONXY Esports</h1>
+        <p class="mt-4 text-lg">Join us in the world of competitive gaming!</p>
+        <a href="#join" class="mt-8 inline-block bg-white text-blue-600 font-semibold py-2 px-4 rounded">Join Us</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 px-10">
+        <h2 class="text-4xl font-bold text-center">About Us</h2>
+        <p class="mt-4 text-xl text-center">ONXY Esports is dedicated to providing a platform for gamers to showcase their skills and compete with the best.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-gray-200 py-20">
+        <h2 class="text-4xl font-bold text-center">Features</h2>
+        <div class="flex flex-wrap justify-center mt-6">
+            <div class="bg-white m-4 p-6 rounded-lg shadow-md">
+                <h3 class="font-bold">Professional Coaching</h3>
+                <p>Learn from the best in the industry.</p>
+            </div>
+            <div class="bg-white m-4 p-6 rounded-lg shadow-md">
+                <h3 class="font-bold">Community Events</h3>
+                <p>Participate in events and compete with others.</p>
+            </div>
+            <div class="bg-white m-4 p-6 rounded-lg shadow-md">
+                <h3 class="font-bold">24/7 Support</h3>
+                <p>We're here to help you anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join" class="py-20 px-10 text-center">
+        <h2 class="text-4xl font-bold">Join Our Community</h2>
+        <p class="mt-4 text-xl">Become a part of our esports family today!</p>
+        <a href="#" class="mt-8 inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded">Sign Up</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-10">
+        <h2 class="text-4xl font-bold text-center">Contact Us</h2>
+        <p class="mt-4 text-xl text-center">For inquiries, reach us at <a href="mailto:info@onxyesports.com" class="text-blue-600">info@onxyesports.com</a>.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-blue-600 text-white py-10">
+        <div class="text-center">
+            <p>Follow us on:</p>
+            <a href="https://discord.gg/example" class="text-white underline">Discord</a> | 
+            <a href="https://twitch.tv/example" class="text-white underline">Twitch</a>
+        </div>
     </footer>
 </body>
 </html>
